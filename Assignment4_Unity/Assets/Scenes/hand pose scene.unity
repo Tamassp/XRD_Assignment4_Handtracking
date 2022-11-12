@@ -19930,7 +19930,6 @@ MonoBehaviour:
   - {fileID: 1650625959}
   - {fileID: 1016335769}
   - {fileID: 954060449}
-  text: {fileID: 0}
 --- !u!1001 &1906226232
 PrefabInstance:
   m_ObjectHideFlags: 0
