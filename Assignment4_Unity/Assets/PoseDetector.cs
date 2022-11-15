@@ -10,6 +10,13 @@ public class PoseDetector : MonoBehaviour
     public List<ActiveStateSelector> poses; 
     private string _cactusPose;
     private readonly string[] _cactusChoices = new[] { "rock", "paper", "scissors" };
+    
+    public GameObject cactusProjectile;
+    public GameObject playerProjectile;    
+    public GameObject cactusLaunchOrigin;
+    public GameObject userLaunchOrigin;
+
+    public float launchVelocity = 700f;
 
     private readonly Dictionary<string, string> _choices = new()
     {
@@ -36,14 +43,19 @@ public class PoseDetector : MonoBehaviour
 
     private void ValidateCactusMove(string choice)
     {
+        GameObject ball;
         if (_choices[choice] == _cactusPose)
         {
             print("Player won");
+            ball = Instantiate(playerProjectile, userLaunchOrigin.transform.position, userLaunchOrigin.transform.rotation);
+            ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, launchVelocity));
         }
         
         if (_choices[_cactusPose] == choice)
         {
             print("Cactus won");
+            ball = Instantiate(cactusProjectile, cactusLaunchOrigin.transform.position, cactusLaunchOrigin.transform.rotation);
+            ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, launchVelocity));
         }
         
         if (choice == _cactusPose)

@@ -1412,8 +1412,6 @@ struct SubsystemProvider_tE1865B8FE698C81A59AED35E0E536BD53F402455;
 struct SupplementaryMetric_t0F0B51014386A10FBA99B506481B5ACE546EA5C7;
 // System.Security.Cryptography.SymmetricAlgorithm
 struct SymmetricAlgorithm_t8C631E4E7B9073CCBD856F8D559A62EB5616BBE8;
-// TMPro.TMP_Text
-struct TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9;
 // Facebook.WitAi.TTS.Data.TTSClipData
 struct TTSClipData_tB4B9D63544628BE855EE0A8DE00FB24F96ABFC15;
 // Facebook.WitAi.TTS.Events.TTSClipDownloadErrorEvent
@@ -6961,12 +6959,12 @@ struct MouseState_tCCE70861DE1EEECF949AFE8E2A922541D4E08A09  : public RuntimeObj
 	List_1_t6D515F3BEDA0E1BF16E735CE960F740AB8ACBDD3* ___m_TrackedButtons_0;
 };
 
-// PoseDetector/<>c__DisplayClass2_0
-struct U3CU3Ec__DisplayClass2_0_t682A0C9E5D39287D170F66E0A54C0273C8DA6DCB  : public RuntimeObject
+// PoseDetector/<>c__DisplayClass11_0
+struct U3CU3Ec__DisplayClass11_0_t2CA5104AAC5371154531CD7570B1A1C0454E21B1  : public RuntimeObject
 {
-	// Oculus.Interaction.ActiveStateSelector PoseDetector/<>c__DisplayClass2_0::pose
+	// Oculus.Interaction.ActiveStateSelector PoseDetector/<>c__DisplayClass11_0::pose
 	ActiveStateSelector_t4E5C386E75A1AEAB9729304B0BFC06441CD92A56* ___pose_0;
-	// PoseDetector PoseDetector/<>c__DisplayClass2_0::<>4__this
+	// PoseDetector PoseDetector/<>c__DisplayClass11_0::<>4__this
 	PoseDetector_tF1014CE49BD2E87A3A6CE717E160AF93FE36110D* ___U3CU3E4__this_1;
 };
 
@@ -22242,8 +22240,26 @@ struct PoseDetector_tF1014CE49BD2E87A3A6CE717E160AF93FE36110D  : public MonoBeha
 {
 	// System.Collections.Generic.List`1<Oculus.Interaction.ActiveStateSelector> PoseDetector::poses
 	List_1_tD80BFE992F072693B7F69229B7B1ADADBD52DC9D* ___poses_4;
-	// TMPro.TMP_Text PoseDetector::text
-	TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* ___text_5;
+	// System.String PoseDetector::_cactusPose
+	String_t* ____cactusPose_5;
+	// System.String[] PoseDetector::_cactusChoices
+	StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* ____cactusChoices_6;
+	// UnityEngine.GameObject PoseDetector::cactusProjectile
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___cactusProjectile_7;
+	// UnityEngine.GameObject PoseDetector::playerProjectile
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___playerProjectile_8;
+	// UnityEngine.GameObject PoseDetector::drawProjectile
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___drawProjectile_9;
+	// UnityEngine.GameObject PoseDetector::cactusLaunchOrigin
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___cactusLaunchOrigin_10;
+	// UnityEngine.GameObject PoseDetector::userLaunchOrigin
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___userLaunchOrigin_11;
+	// UnityEngine.GameObject PoseDetector::drawLaunchOrigin
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___drawLaunchOrigin_12;
+	// System.Single PoseDetector::launchVelocity
+	float ___launchVelocity_13;
+	// System.Collections.Generic.Dictionary`2<System.String,System.String> PoseDetector::_choices
+	Dictionary_2_t46B2DB028096FA2B828359E52F37F3105A83AD83* ____choices_14;
 };
 
 // Oculus.Interaction.Samples.PoseUseSample
@@ -27230,10 +27246,10 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable6906[2] =
 	static_cast<int32_t>(offsetof(UiVectorInspector_t2E23A6C1CB0190012A5F128C671ADA21ABECF913, ___m_nameLabel_4)),static_cast<int32_t>(offsetof(UiVectorInspector_t2E23A6C1CB0190012A5F128C671ADA21ABECF913, ___m_valueLabel_5)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable6907[2] = 
 {
-	static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass2_0_t682A0C9E5D39287D170F66E0A54C0273C8DA6DCB, ___pose_0)),static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass2_0_t682A0C9E5D39287D170F66E0A54C0273C8DA6DCB, ___U3CU3E4__this_1)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable6908[2] = 
+	static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass11_0_t2CA5104AAC5371154531CD7570B1A1C0454E21B1, ___pose_0)),static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass11_0_t2CA5104AAC5371154531CD7570B1A1C0454E21B1, ___U3CU3E4__this_1)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable6908[11] = 
 {
-	static_cast<int32_t>(offsetof(PoseDetector_tF1014CE49BD2E87A3A6CE717E160AF93FE36110D, ___poses_4)),static_cast<int32_t>(offsetof(PoseDetector_tF1014CE49BD2E87A3A6CE717E160AF93FE36110D, ___text_5)),};
+	static_cast<int32_t>(offsetof(PoseDetector_tF1014CE49BD2E87A3A6CE717E160AF93FE36110D, ___poses_4)),static_cast<int32_t>(offsetof(PoseDetector_tF1014CE49BD2E87A3A6CE717E160AF93FE36110D, ____cactusPose_5)),static_cast<int32_t>(offsetof(PoseDetector_tF1014CE49BD2E87A3A6CE717E160AF93FE36110D, ____cactusChoices_6)),static_cast<int32_t>(offsetof(PoseDetector_tF1014CE49BD2E87A3A6CE717E160AF93FE36110D, ___cactusProjectile_7)),static_cast<int32_t>(offsetof(PoseDetector_tF1014CE49BD2E87A3A6CE717E160AF93FE36110D, ___playerProjectile_8)),static_cast<int32_t>(offsetof(PoseDetector_tF1014CE49BD2E87A3A6CE717E160AF93FE36110D, ___drawProjectile_9)),static_cast<int32_t>(offsetof(PoseDetector_tF1014CE49BD2E87A3A6CE717E160AF93FE36110D, ___cactusLaunchOrigin_10)),static_cast<int32_t>(offsetof(PoseDetector_tF1014CE49BD2E87A3A6CE717E160AF93FE36110D, ___userLaunchOrigin_11)),static_cast<int32_t>(offsetof(PoseDetector_tF1014CE49BD2E87A3A6CE717E160AF93FE36110D, ___drawLaunchOrigin_12)),static_cast<int32_t>(offsetof(PoseDetector_tF1014CE49BD2E87A3A6CE717E160AF93FE36110D, ___launchVelocity_13)),static_cast<int32_t>(offsetof(PoseDetector_tF1014CE49BD2E87A3A6CE717E160AF93FE36110D, ____choices_14)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable6909[3] = 
 {
 	static_cast<int32_t>(offsetof(TriggerProjectile_tAB457491C972D9F44DC7EB52AFD705207CE4F738, ___pose_4)),static_cast<int32_t>(offsetof(TriggerProjectile_tAB457491C972D9F44DC7EB52AFD705207CE4F738, ___projectile_5)),static_cast<int32_t>(offsetof(TriggerProjectile_tAB457491C972D9F44DC7EB52AFD705207CE4F738, ___launchVelocity_6)),};
