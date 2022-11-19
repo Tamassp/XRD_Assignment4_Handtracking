@@ -33,6 +33,13 @@ public class PoseDetector : MonoBehaviour
 
     private bool wait = false;
 
+    public GameObject cactusProjectile;
+    public GameObject playerProjectile;    
+    public GameObject cactusLaunchOrigin;
+    public GameObject userLaunchOrigin;
+
+    public float launchVelocity = 700f;
+
     private readonly Dictionary<string, string> _choices = new()
     {
         { "rock", "scissors" },
@@ -69,6 +76,7 @@ public class PoseDetector : MonoBehaviour
     
     private void ValidateCactusMove(string choice)
     {
+        GameObject ball;
         if (!wait)
         {
             if (_choices[choice] == _cactusPose)
@@ -78,6 +86,8 @@ public class PoseDetector : MonoBehaviour
                 backgroundCube.GetComponent<Renderer>().material.color = green;
                 playerPoints++;
                 playerPointsText.SetText("Player: " + playerPoints);
+                ball = Instantiate(playerProjectile, userLaunchOrigin.transform.position, userLaunchOrigin.transform.rotation);
+                ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, launchVelocity));
             }
 
             if (_choices[_cactusPose] == choice)
@@ -87,6 +97,8 @@ public class PoseDetector : MonoBehaviour
                 backgroundCube.GetComponent<Renderer>().material.color = red;
                 cactusPoints++;
                 cactusPointsText.SetText("Cactus: " + cactusPoints);
+                ball = Instantiate(cactusProjectile, cactusLaunchOrigin.transform.position, cactusLaunchOrigin.transform.rotation);
+                ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, launchVelocity));
             }
 
             if (choice == _cactusPose)
