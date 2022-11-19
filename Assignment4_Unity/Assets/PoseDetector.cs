@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Oculus.Interaction;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
@@ -18,6 +19,10 @@ public class PoseDetector : MonoBehaviour
     public SpriteRenderer paperImage;
     public SpriteRenderer scissorsImage;
     public GameObject backgroundCube;
+
+    public TextMeshPro cactusTextBox;
+    public TextMeshPro playerPointsText;
+    public TextMeshPro cactusPointsText;
     
     private Color green = new Color(0,255,0);
     private Color red = new Color(255,0,0);
@@ -50,6 +55,7 @@ public class PoseDetector : MonoBehaviour
     private void Wait()
     {
         wait = false;
+        cactusTextBox.SetText("I'm Ready");
     }
 
     private void RestartGame()
@@ -71,6 +77,7 @@ public class PoseDetector : MonoBehaviour
                 m_Animator.SetTrigger("triggerGetsHit");
                 backgroundCube.GetComponent<Renderer>().material.color = green;
                 playerPoints++;
+                playerPointsText.SetText("Player: " + playerPoints);
             }
 
             if (_choices[_cactusPose] == choice)
@@ -79,6 +86,7 @@ public class PoseDetector : MonoBehaviour
                 m_Animator.SetTrigger("triggerAttack");
                 backgroundCube.GetComponent<Renderer>().material.color = red;
                 cactusPoints++;
+                cactusPointsText.SetText("Cactus: " + cactusPoints);
             }
 
             if (choice == _cactusPose)
@@ -101,6 +109,7 @@ public class PoseDetector : MonoBehaviour
         
             ValidateMoveIcon(_cactusPose);
             wait = true;
+            cactusTextBox.SetText("Wait a bit");
             Invoke("Wait", 2.0f);
         }
     }
@@ -153,5 +162,7 @@ public class PoseDetector : MonoBehaviour
         m_Animator.SetBool("isDead", false);
         m_Animator.SetBool("hasWon", false);
         m_Animator.SetBool("restart", true);
+        playerPointsText.SetText("Player: 0");
+        cactusPointsText.SetText("Cactus: 0");
     }
 }
