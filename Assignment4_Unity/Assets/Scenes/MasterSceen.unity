@@ -4941,6 +4941,9 @@ MonoBehaviour:
   paperImage: {fileID: 1733899966}
   scissorsImage: {fileID: 1922154249}
   backgroundCube: {fileID: 2097376057}
+  rock: {fileID: 0}
+  paper: {fileID: 0}
+  scissors: {fileID: 100004, guid: c562592af2b0f46a9b70b72062643dfe, type: 3}
   cactusTextBox: {fileID: 300266733}
   playerPointsText: {fileID: 2124244999}
   cactusPointsText: {fileID: 1100864669}

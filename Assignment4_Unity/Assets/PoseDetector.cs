@@ -87,6 +87,7 @@ public class PoseDetector : MonoBehaviour
                 playerPoints++;
                 playerPointsText.SetText("Player: " + playerPoints);
                 ball = Instantiate(playerProjectile, userLaunchOrigin.transform.position, userLaunchOrigin.transform.rotation);
+                ball.transform.localScale = new Vector3(0.05f,0.05f,0.05f);
                 ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, launchVelocity));
             }
 
