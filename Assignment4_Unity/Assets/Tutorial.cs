@@ -1,12 +1,14 @@
 ﻿using System;
 using Oculus.Interaction;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Unity.Template.VR
 {
     public class Tutorial : MonoBehaviour
     {
         public GameObject mainScene;
+        public GameObject objectThatHoldsScript;
         public GameObject tutorialScene;
         public GameObject spawnRock;
         public GameObject spawnScissors;
@@ -18,7 +20,8 @@ namespace Unity.Template.VR
         
         private void Start()
         {
-            mainScene.SetActive(false);
+            //mainScene.SetActive(false);
+            //objectThatHoldsScript.GetComponent<PoseDetector>().enabled = false;
             scissors.WhenSelected += () =>
             {
                 spawnScissors.gameObject.transform.localScale = new Vector3(1, 1, 1);
@@ -39,8 +42,13 @@ namespace Unity.Template.VR
 
             thumbsUp.WhenSelected += () =>
             {
-                Destroy(tutorialScene);
-                mainScene.SetActive(true);
+                if (gameObject != null)
+                {
+                    Destroy(tutorialScene);
+                    SceneManager.LoadScene("MasterSceen", LoadSceneMode.Single);
+                }
+                //mainScene.SetActive(true);
+                //objectThatHoldsScript.GetComponent<PoseDetector>().enabled = true;
             };
         }   
     }
