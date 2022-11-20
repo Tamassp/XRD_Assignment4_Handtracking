@@ -26,7 +26,7 @@ public class PoseDetector : MonoBehaviour
     
     private Color green = new Color(0,255,0);
     private Color red = new Color(255,0,0);
-    private Color draw = new Color(0, 0, 255);
+    private Color blue = new Color(0, 0, 255);
 
     private int playerPoints = 0;
     private int cactusPoints = 0;
@@ -83,45 +83,50 @@ public class PoseDetector : MonoBehaviour
             {
                 print("Player won");
                 m_Animator.SetTrigger("triggerGetsHit");
-                backgroundCube.GetComponent<Renderer>().material.color = green;
+                backgroundCube.GetComponent<Renderer>().material.color = blue;
                 playerPoints++;
-                playerPointsText.SetText("Player: " + playerPoints);
+                playerPointsText.SetText(playerPoints.ToString());
                 ball = Instantiate(playerProjectile, userLaunchOrigin.transform.position, userLaunchOrigin.transform.rotation);
                 ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, launchVelocity));
+                cactusTextBox.SetText("Not baad");
             }
 
             if (_choices[_cactusPose] == choice)
             {
                 print("Cactus won");
                 m_Animator.SetTrigger("triggerAttack");
-                backgroundCube.GetComponent<Renderer>().material.color = red;
+                backgroundCube.GetComponent<Renderer>().material.color = green;
                 cactusPoints++;
-                cactusPointsText.SetText("Cactus: " + cactusPoints);
+                cactusPointsText.SetText(cactusPoints.ToString());
                 ball = Instantiate(cactusProjectile, cactusLaunchOrigin.transform.position, cactusLaunchOrigin.transform.rotation);
                 ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, launchVelocity));
+                cactusTextBox.SetText("You weak");
             }
 
             if (choice == _cactusPose)
             {
                 print("Draw");
-                backgroundCube.GetComponent<Renderer>().material.color = draw;
+                backgroundCube.GetComponent<Renderer>().material.color = red;
+                cactusTextBox.SetText("Draw..AGAIN");
             }
 
             if (playerPoints >= 3)
             {
                 m_Animator.SetBool("isDead", true);
+                cactusTextBox.SetText("Aaaaah");
                 Invoke("Restart", 2.5f); // Restart();
             }
 
             if (cactusPoints >= 3)
             {
                 m_Animator.SetBool("hasWon", true);
+                cactusTextBox.SetText("I WON");
                 Invoke("Restart", 2.5f);
             }
         
             ValidateMoveIcon(_cactusPose);
             wait = true;
-            cactusTextBox.SetText("Wait a bit");
+            //cactusTextBox.SetText("Wait a bit");
             Invoke("Wait", 2.0f);
         }
     }
@@ -174,7 +179,7 @@ public class PoseDetector : MonoBehaviour
         m_Animator.SetBool("isDead", false);
         m_Animator.SetBool("hasWon", false);
         m_Animator.SetBool("restart", true);
-        playerPointsText.SetText("Player: 0");
-        cactusPointsText.SetText("Cactus: 0");
+        playerPointsText.SetText("0");
+        cactusPointsText.SetText("0");
     }
 }
